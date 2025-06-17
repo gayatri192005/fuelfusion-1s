@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Fuel Fusion</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" id="userAvatar">
+                </div>
+                <div class="user-details">
+                    <h1 id="userGreeting">Good morning, User!</h1>
+                    <p>Ready for your next fuel delivery?</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="notification-btn" onclick="toggleNotifications()">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge" id="notificationCount">3</span>
+                </button>
+                <button class="profile-btn" onclick="toggleProfileMenu()">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="action-card primary" onclick="navigateToOrder()">
+                <div class="action-icon">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="action-content">
+                    <h3>Order Fuel</h3>
+                    <p>Quick delivery</p>
+                </div>
+            </div>
+            <div class="action-card emergency" onclick="callEmergency()">
+                <div class="action-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="action-content">
+                    <h3>Emergency</h3>
+                    <p>24/7 support</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Delivery -->
+        <section class="active-delivery" id="activeDelivery">
+            <div class="delivery-card">
+                <div class="delivery-header">
+                    <h3><i class="fas fa-truck"></i> Active Delivery</h3>
+                    <span class="status-badge en-route">En Route</span>
+                </div>
+                <div class="delivery-info">
+                    <div class="delivery-details">
+                        <p class="fuel-type">Premium Petrol - 10 litres</p>
+                        <p class="arrival-time">Arriving in <span id="arrivalTime">12</span> minutes</p>
+                    </div>
+                    <div class="delivery-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bandra West, Mumbai</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline" onclick="trackDelivery()">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Track Delivery
+                </button>
+            </div>
+        </section>
+
+        <!-- Recent Orders -->
+        <section class="recent-orders">
+            <div class="section-header">
+                <h3>Recent Orders</h3>
+                <button class="view-all-btn" onclick="viewAllOrders()">View All</button>
+            </div>
+            <div class="orders-list" id="ordersList">
+                <!-- Orders will be loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Eco Impact -->
+        <section class="eco-impact">
+            <div class="impact-card">
+                <div class="impact-content">
+                    <div class="impact-info">
+                        <h3>Your Eco Impact</h3>
+                        <p>CO₂ saved this month</p>
+                    </div>
+                    <div class="impact-stats">
+                        <div class="impact-number">11.2 kg</div>
+                        <div class="impact-badge">
+                            <i class="fas fa-leaf"></i>
+                            Great job!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fuel Prices -->
+        <section class="fuel-prices">
+            <h3>Today's Fuel Prices in <span id="userCity">Mumbai</span></h3>
+            <div class="prices-grid" id="fuelPrices">
+                <!-- Prices will be loaded dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-page="home" onclick="switchTab('home')">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </button>
+        <button class="nav-item" data-page="orders" onclick="switchTab('orders')">
+            <i class="fas fa-history"></i>
+            <span>Orders</span>
+        </button>
+        <button class="nav-item" data-page="wallet" onclick="switchTab('wallet')">
+            <i class="fas fa-wallet"></i>
+            <span>Wallet</span>
+        </button>
+        <button class="nav-item" data-page="profile" onclick="switchTab('profile')">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </button>
+    </nav>
+
+    <!-- Notification Panel -->
+    <div id="notificationPanel" class="notification-panel">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button onclick="toggleNotifications()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="notification-list" id="notificationList">
+            <!-- Notifications will be loaded dynamically -->
+        </div>
+    </div>
+
+    <!-- Profile Menu -->
+    <div id="profileMenu" class="profile-menu">
+        <div class="profile-menu-item" onclick="editProfile()">
+            <i class="fas fa-edit"></i>
+            <span>Edit Profile</span>
+        </div>
+        <div class="profile-menu-item" onclick="viewSettings()">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </div>
+        <div class="profile-menu-item" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </div>
+    </div>
+
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>

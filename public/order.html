@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Fuel - Fuel Fusion</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="order-header">
+        <button class="back-btn" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <h1>Order Fuel</h1>
+        <div class="help-btn" onclick="showHelp()">
+            <i class="fas fa-question-circle"></i>
+        </div>
+    </header>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-step active" data-step="1">
+            <div class="step-number">1</div>
+            <span>Fuel</span>
+        </div>
+        <div class="progress-step" data-step="2">
+            <div class="step-number">2</div>
+            <span>Location</span>
+        </div>
+        <div class="progress-step" data-step="3">
+            <div class="step-number">3</div>
+            <span>Payment</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="order-main">
+        <!-- Step 1: Fuel Selection -->
+        <div id="step1" class="order-step active">
+            <section class="fuel-selection">
+                <h2>Select Fuel Type</h2>
+                <p class="step-description">Choose the fuel type for your vehicle</p>
+                
+                <div class="fuel-types" id="fuelTypes">
+                    <!-- Fuel types will be loaded dynamically -->
+                </div>
+            </section>
+
+            <section class="quantity-selection">
+                <h2>Quantity</h2>
+                <p class="step-description">How many litres do you need?</p>
+                
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="decreaseQuantity()">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <div class="quantity-display">
+                        <div class="quantity-number" id="quantityNumber">10</div>
+                        <div class="quantity-unit">litres</div>
+                    </div>
+                    <button class="quantity-btn" onclick="increaseQuantity()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="quantity-slider">
+                    <input type="range" id="quantitySlider" min="5" max="50" value="10" step="5" oninput="updateQuantity(this.value)">
+                    <div class="slider-labels">
+                        <span>5L</span>
+                        <span>50L</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="order-summary" id="orderSummary">
+                <!-- Order summary will be updated dynamically -->
+            </div>
+
+            <button class="btn btn-primary btn-full" onclick="nextStep()" id="step1NextBtn" disabled>
+                Continue to Location
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Step 2: Location -->
+        <div id="step2" class="order-step">
+            <section class="location-selection">
+                <h2>Delivery Location</h2>
+                <p class="step-description">Where should we deliver your fuel?</p>
+                
+                <div class="location-options">
+                    <button class="location-option" onclick="useCurrentLocation()">
+                        <i class="fas fa-crosshairs"></i>
+                        <span>Use Current Location</span>
+                    </button>
+                    <button class="location-option" onclick="selectFromMap()">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Select from Map</span>
+                    </button>
+                </div>
+
+                <form class="address-form">
+                    <div class="form-group">
+                        <label for="addressLine1">Street Address</label>
+                        <input type="text" id="addressLine1" placeholder="House/Building number, Street name" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="area">Area/Locality</label>
+                            <input type="text" id="area" placeholder="Area, Locality" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Pincode</label>
+                            <input type="text" id="pincode" placeholder="400001" maxlength="6" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="landmark">Landmark (Optional)</label>
+                        <input type="text" id="landmark" placeholder="Near Metro Station, Mall, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="instructions">Delivery Instructions</label>
+                        <textarea id="instructions" placeholder="e.g., Park in building compound, Call before arrival" rows="3"></textarea>
+                    </div>
+                </form>
+            </section>
+
+            <section class="vehicle-info">
+                <h2>Vehicle Information</h2>
+                <form class="vehicle-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleMake">Make</label>
+                            <select id="vehicleMake" required>
+                                <option value="">Select Make</option>
+                                <option value="maruti">Maruti Suzuki</option>
+                                <option value="hyundai">Hyundai</option>
+                                <option value="tata">Tata</option>
+                                <option value="mahindra">Mahindra</option>
+                                <option value="honda">Honda</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="ford">Ford</option>
+                                <option value="volkswagen">Volkswagen</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleModel">Model</label>
+                            <input type="text" id="vehicleModel" placeholder="Swift, i20, etc." required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleColor">Color</label>
+                            <input type="text" id="vehicleColor" placeholder="White, Red, etc." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="licensePlate">License Plate</label>
+                            <input type="text" id="licensePlate" placeholder="MH01AB1234" required>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <div class="step-actions">
+                <button class="btn btn-outline" onclick="previousStep()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+                <button class="btn btn-primary" onclick="nextStep()">
+                    Continue to Payment
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: Payment -->
+        <div id="step3" class="order-step">
+            <section class="payment-methods">
+                <h2>Payment Method</h2>
+                <p class="step-description">Choose your preferred payment method</p>
+                
+                <div class="payment-options">
+                    <div class="payment-option selected" data-method="upi">
+                        <div class="payment-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="payment-details">
+                            <h3>UPI</h3>
+                            <p>Pay using PhonePe, GPay, Paytm</p>
+                        </div>
+                        <div class="payment-radio">
+                            <input type="radio" name="payment" value="upi" checked>
+                        </div>
+                    </div>
+                    <div class="payment-option" data-method="card">
+                        <div class="payment-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="payment-details">
+                            <h3>Credit/Debit Card</h3>
+                            <p>Visa, Mastercard, RuPay</p>
+                        </div>
+                        <div class="payment-radio">
+                            <input type="radio" name="payment" value="card">
+                        </div>
+                    </div>
+                    <div class="payment-option" data-method="wallet">
+                        <div class="payment-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="payment-details">
+                            <h3>Fuel Fusion Wallet</h3>
+                            <p>Balance: ₹250.00</p>
+                        </div>
+                        <div class="payment-radio">
+                            <input type="radio" name="payment" value="wallet">
+                        </div>
+                    </div>
+                    <div class="payment-option" data-method="cod">
+                        <div class="payment-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="payment-details">
+                            <h3>Cash on Delivery</h3>
+                            <p>Pay when fuel is delivered</p>
+                        </div>
+                        <div class="payment-radio">
+                            <input type="radio" name="payment" value="cod">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="delivery-time">
+                <h2>Delivery Time</h2>
+                <select id="deliveryTime" class="delivery-time-select">
+                    <option value="asap">As soon as possible (30-45 min)</option>
+                    <option value="1hour">Within 1 hour</option>
+                    <option value="2hours">Within 2 hours</option>
+                    <option value="schedule">Schedule for later</option>
+                </select>
+            </section>
+
+            <section class="final-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-card" id="finalSummary">
+                    <!-- Final summary will be populated -->
+                </div>
+            </section>
+
+            <div class="step-actions">
+                <button class="btn btn-outline" onclick="previousStep()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+                <button class="btn btn-primary" onclick="placeOrder()" id="placeOrderBtn">
+                    <i class="fas fa-shield-alt"></i>
+                    Place Order Securely
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Confirmation Modal -->
+    <div id="orderConfirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="confirmation-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Order Placed Successfully!</h2>
+                <p>Your fuel delivery order has been confirmed.</p>
+                <div class="order-details" id="confirmedOrderDetails">
+                    <!-- Order details will be populated -->
+                </div>
+                <div class="confirmation-actions">
+                    <button class="btn btn-primary" onclick="trackOrder()">
+                        <i class="fas fa-map-marked-alt"></i>
+                        Track Order
+                    </button>
+                    <button class="btn btn-outline" onclick="goToDashboard()">
+                        Go to Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/order.js"></script>
+</body>
+</html>

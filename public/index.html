@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Fusion - On-Demand Fuel Delivery in India</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-gas-pump"></i>
+                <span>Fuel Fusion</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <button class="btn btn-primary" onclick="openAuthModal()">Get Started</button>
+            </div>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-rocket"></i>
+                <span>Revolutionary Fuel Delivery in India</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="gradient-text">Fuel Delivered</span><br>
+                to Your Doorstep
+            </h1>
+            <p class="hero-description">
+                Skip the petrol pump queues. Get premium fuel delivered anywhere in India, anytime with our eco-friendly electric fleet. Available in Mumbai, Delhi, Bangalore, and 50+ cities.
+            </p>
+            <div class="hero-actions">
+                <button class="btn btn-primary btn-large" onclick="openAuthModal()">
+                    Order Fuel Now
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-secondary btn-large" onclick="playDemo()">
+                    <i class="fas fa-play"></i>
+                    Watch Demo
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="50000">0</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="100">0</span>
+                    <span class="stat-label">Cities Covered</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="24">0</span>
+                    <span class="stat-label">Hours Service</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card">
+                <i class="fas fa-truck"></i>
+                <span>Delivery in 30 mins</span>
+            </div>
+            <div class="floating-card delay-1">
+                <i class="fas fa-leaf"></i>
+                <span>100% Eco-friendly</span>
+            </div>
+            <div class="floating-card delay-2">
+                <i class="fas fa-shield-alt"></i>
+                <span>Safe & Secure</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Fuel Fusion?</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Availability</h3>
+                    <p>Get fuel delivered anytime, anywhere across India. No more worrying about petrol pump timings.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Doorstep Delivery</h3>
+                    <p>Fuel delivered directly to your location. Perfect for busy schedules and traffic-heavy cities.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enhanced Safety</h3>
+                    <p>Avoid unsafe areas and late-night pump visits. Stay secure with our verified delivery partners.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Friendly Fleet</h3>
+                    <p>Our electric delivery vehicles reduce carbon footprint and support India's green initiative.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Smart App Experience</h3>
+                    <p>Real-time tracking, UPI payments, and seamless ordering in Hindi and English.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Premium Service</h3>
+                    <p>Roadside assistance, vehicle maintenance checks, and 24/7 customer support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step" data-aos="fade-right">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Order via App</h3>
+                        <p>Select fuel type, quantity, and delivery location through our user-friendly app available in multiple Indian languages.</p>
+                    </div>
+                </div>
+                <div class="step" data-aos="fade-left">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Real-time Tracking</h3>
+                        <p>Track your delivery in real-time with GPS and get accurate arrival estimates with live updates.</p>
+                    </div>
+                </div>
+                <div class="step" data-aos="fade-right">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Fuel Delivered</h3>
+                        <p>Our certified technician safely delivers premium fuel to your vehicle with contactless service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Transparent Pricing</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card" data-aos="zoom-in">
+                    <h3>Regular Petrol</h3>
+                    <div class="price">₹<span class="price-amount">102.50</span>/L</div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Same day delivery</li>
+                        <li><i class="fas fa-check"></i> Quality assured</li>
+                        <li><i class="fas fa-check"></i> Digital receipt</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Premium Petrol</h3>
+                    <div class="price">₹<span class="price-amount">108.75</span>/L</div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Priority delivery</li>
+                        <li><i class="fas fa-check"></i> High octane fuel</li>
+                        <li><i class="fas fa-check"></i> Engine care additives</li>
+                        <li><i class="fas fa-check"></i> Free vehicle check</li>
+                    </ul>
+                </div>
+                <div class="pricing-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>Diesel</h3>
+                    <div class="price">₹<span class="price-amount">89.25</span>/L</div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Commercial grade</li>
+                        <li><i class="fas fa-check"></i> Bulk discounts</li>
+                        <li><i class="fas fa-check"></i> Fleet solutions</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="pricing-note">*Prices may vary by city. Delivery charges: ₹49 (Free for orders above ₹500)</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Skip the Petrol Pump?</h2>
+            <p>Join lakhs of satisfied customers across India who've made the switch.</p>
+            <button class="btn btn-primary btn-large" onclick="openAuthModal()">
+                Start Your First Delivery
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-gas-pump"></i>
+                        <span>Fuel Fusion</span>
+                    </div>
+                    <p>Revolutionizing fuel delivery across India with convenience and sustainability.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Fuel Delivery</a></li>
+                        <li><a href="#">Emergency Service</a></li>
+                        <li><a href="#">Roadside Assistance</a></li>
+                        <li><a href="#">Fleet Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Cities</h3>
+                    <ul>
+                        <li><a href="#">Mumbai</a></li>
+                        <li><a href="#">Delhi NCR</a></li>
+                        <li><a href="#">Bangalore</a></li>
+                        <li><a href="#">Chennai</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fuel Fusion India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Welcome to Fuel Fusion</h2>
+                <span class="close" onclick="closeAuthModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                    <button class="tab-btn" onclick="switchTab('register')">Register</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginPhone">Mobile Number</label>
+                        <div class="phone-input">
+                            <span class="country-code">+91</span>
+                            <input type="tel" id="loginPhone" placeholder="Enter 10-digit mobile number" maxlength="10" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                    <p class="auth-link">Forgot password? <a href="#" onclick="showForgotPassword()">Reset here</a></p>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" class="auth-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Enter last name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPhone">Mobile Number</label>
+                        <div class="phone-input">
+                            <span class="country-code">+91</span>
+                            <input type="tel" id="registerPhone" placeholder="Enter 10-digit mobile number" maxlength="10" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <select id="city" required>
+                            <option value="">Select your city</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="delhi">Delhi NCR</option>
+                            <option value="bangalore">Bangalore</option>
+                            <option value="chennai">Chennai</option>
+                            <option value="hyderabad">Hyderabad</option>
+                            <option value="pune">Pune</option>
+                            <option value="kolkata">Kolkata</option>
+                            <option value="ahmedabad">Ahmedabad</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="registerPassword" placeholder="Create a strong password" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword('registerPassword')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-gas-pump"></i>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
