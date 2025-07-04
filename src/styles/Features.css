@@ -1,0 +1,43 @@
+.features {
+  padding: 4rem 1rem;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+  background: #fff;
+  padding: 2rem 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 5%);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  color: #475569;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
