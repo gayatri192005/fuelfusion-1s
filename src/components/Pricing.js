@@ -1,42 +1,42 @@
-import "../styles/Pricing.css"
-
-const PLANS = [
-  {
-    name: "Starter",
-    price: 199,
-    features: ["Up to 500 L / month", "Live tracking", "Standard support"],
-  },
-  {
-    name: "Business",
-    price: 499,
-    highlighted: true,
-    features: ["Up to 2 000 L / month", "Priority delivery", "Dedicated manager"],
-  },
-  {
-    name: "Enterprise",
-    price: 999,
-    features: ["Unlimited volume", "24×7 support", "Custom SLA & analytics"],
-  },
-]
+import "./../styles/Pricing.css"
 
 export default function Pricing() {
+  const plans = [
+    {
+      name: "Basic",
+      price: 99,
+      perks: ["5 orders / month", "₹ 40 delivery fee", "Standard support"],
+    },
+    {
+      name: "Pro",
+      price: 299,
+      perks: ["20 orders / month", "₹ 25 delivery fee", "Priority support"],
+      highlight: true,
+    },
+    {
+      name: "Enterprise",
+      price: 999,
+      perks: ["Unlimited orders", "Free delivery", "Dedicated manager"],
+    },
+  ]
+
   return (
-    <section className="pricing">
-      <h2 className="section-title">Pricing (₹/month)</h2>
-      <div className="plans">
-        {PLANS.map((plan) => (
-          <div key={plan.name} className={`plan ${plan.highlighted ? "active" : ""}`}>
-            <h3>{plan.name}</h3>
+    <section id="pricing" className="pricing">
+      <h2 className="pricing__title">Simple, Transparent Pricing</h2>
+      <div className="pricing__grid">
+        {plans.map((p) => (
+          <div key={p.name} className={`plan${p.highlight ? " plan--highlight" : ""}`}>
+            <h3>{p.name}</h3>
             <p className="price">
-              ₹{plan.price}
-              <span className="unit">/mo</span>
+              ₹ {p.price}
+              <span className="period">/ month</span>
             </p>
             <ul>
-              {plan.features.map((f) => (
-                <li key={f}>{f}</li>
+              {p.perks.map((perk) => (
+                <li key={perk}>{perk}</li>
               ))}
             </ul>
-            <button className="btn-select">Select Plan</button>
+            <button className="plan__btn">Choose Plan</button>
           </div>
         ))}
       </div>

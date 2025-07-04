@@ -1,33 +1,29 @@
-import "../styles/Features.css"
-
-const DATA = [
-  {
-    title: "On-Demand Refuelling",
-    desc: "Order fuel anytime, anywhere and our truck arrives at your location.",
-  },
-  {
-    title: "Live GPS Tracking",
-    desc: "Track your delivery vehicle in real-time directly from the app.",
-  },
-  {
-    title: "Secure Digital Payments",
-    desc: "Pay seamlessly via UPI, cards or net-banking—no cash needed.",
-  },
-  {
-    title: "Eco-Friendly Operations",
-    desc: "Optimised routes reduce CO₂ emissions and save costs.",
-  },
-]
+import "./../styles/Features.css"
 
 export default function Features() {
+  const list = [
+    {
+      title: "On-Demand Refuelling",
+      desc: "Order fuel anytime, anywhere and we’ll deliver within 30 minutes.",
+    },
+    {
+      title: "Transparent Pricing",
+      desc: "Pay pump-price + delivery — no hidden charges, ever.",
+    },
+    {
+      title: "Eco-Smart Routes",
+      desc: "Optimised delivery routes cut CO₂ emissions and save you money.",
+    },
+  ]
+
   return (
-    <section className="features">
-      <h2 className="section-title">Key Features</h2>
-      <div className="features-grid">
-        {DATA.map((item) => (
-          <div key={item.title} className="card">
-            <h3 className="card-title">{item.title}</h3>
-            <p className="card-desc">{item.desc}</p>
+    <section id="features" className="features">
+      <h2 className="features__title">Why Fuel Fusion?</h2>
+      <div className="features__grid">
+        {list.map((f) => (
+          <div key={f.title} className="feature">
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
           </div>
         ))}
       </div>
