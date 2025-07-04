@@ -1,0 +1,163 @@
+:root {
+  --ff-green: #0f8e5e;
+  --ff-green-dark: #0c714c;
+  --ff-grey: #f2f4f5;
+  --ff-border: #d6dadd;
+  --ff-text: #24323f;
+  --ff-radius: 8px;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* layout */
+.order-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--ff-text);
+}
+.order-title {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+/* progress steps */
+.order-steps {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  counter-reset: step;
+}
+.order-steps li {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.75rem;
+  font-weight: 500;
+  color: #81909e;
+}
+.order-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  display: block;
+  margin: 0 auto 0.5rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 28px;
+  background: #cfd8e0;
+  color: #fff;
+}
+.order-steps li.active {
+  color: var(--ff-text);
+}
+.order-steps li.active::before {
+  background: var(--ff-green);
+}
+.order-steps li.done {
+  color: var(--ff-green-dark);
+}
+.order-steps li.done::before {
+  background: var(--ff-green-dark);
+}
+
+/* fuel cards */
+.fuel-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-bottom: 1.5rem;
+}
+.fuel-card {
+  border: 2px solid var(--ff-border);
+  border-radius: var(--ff-radius);
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  background: #fff;
+  transition: border .15s;
+}
+.fuel-card.selected {
+  border-color: var(--ff-green-dark);
+}
+.fuel-card strong {
+  display: block;
+  margin-bottom: .25rem;
+}
+.fuel-card .price {
+  font-size: .9rem;
+  color: #5b6a78;
+}
+
+/* quantity */
+.qty-label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.qty-label input {
+  margin-left: .5rem;
+  width: 80px;
+  padding: .25rem .5rem;
+  font-size: 1rem;
+}
+
+/* address */
+.address-box {
+  width: 100%;
+  padding: .75rem;
+  border-radius: var(--ff-radius);
+  border: 1px solid var(--ff-border);
+  margin-bottom: 1.5rem;
+  resize: vertical;
+}
+
+/* summary */
+.summary {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+.summary li {
+  display: flex;
+  justify-content: space-between;
+  padding: .25rem 0;
+}
+.summary .total {
+  font-weight: 700;
+  border-top: 1px dashed var(--ff-border);
+  padding-top: .5rem;
+}
+
+/* buttons */
+.btn {
+  padding: .55rem 1.25rem;
+  font-size: 1rem;
+  border-radius: var(--ff-radius);
+  border: 1px solid var(--ff-border);
+  background: #fff;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn:hover {
+  background: #f0f2f3;
+}
+.btn.primary {
+  background: var(--ff-green);
+  color: #fff;
+  border-color: var(--ff-green-dark);
+}
+.btn.primary:hover {
+  background: var(--ff-green-dark);
+}
+.btn.big {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* nav */
+.nav {
+  display: flex;
+  gap: .75rem;
+  justify-content: flex-end;
+}
