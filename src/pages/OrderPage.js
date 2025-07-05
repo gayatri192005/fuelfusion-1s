@@ -6,150 +6,130 @@ import "../styles/OrderPage.css"
 
 /**
  * Fuel Fusion – OrderPage
- * Simple three-step wizard:
- * 1) Select fuel & quantity 2) Enter delivery address 3) Review & pay
+ * A simple 3-step wizard:
+ *   1. Choose fuel type
+ *   2. Enter quantity & address
+ *   3. Review + Pay  (fake submit)
+ *
  * All prices are shown in Indian Rupees (₹).
  */
-const FUEL_TYPES = [
-  { id: "petrol", name: "Petrol (91-Octane)", price: 105.9 },
-  { id: "diesel", name: "Diesel", price: 94.3 },
-  { id: "premium", name: "Premium Petrol (95-Octane)", price: 113.4 },
-]
-
 export default function OrderPage() {
-  /* form state ----------------------------------------------------------- */
-  const [step, setStep] = useState(1)
-  const [fuelId, setFuelId] = useState(null)
-  const [litres, setLitres] = useState(10)
-  const [address, setAddress] = useState("")
   const navigate = useNavigate()
 
-  /* derived -------------------------------------------------------------- */
-  const selectedFuel = FUEL_TYPES.find((f) => f.id === fuelId)
-  const fuelCost = selectedFuel ? selectedFuel.price * litres : 0
-  const deliveryFee = 150 // flat fee (₹)
-  const total = fuelCost + deliveryFee
+  const [step, setStep] = useState(1)
+  const [fuelType, setFuelType] = useState("Petrol")
+  const [qty, setQty] = useState(10)
+  const [address, setAddress] = useState("")
+  const pricePerLitre = fuelType === "Diesel" ? 88 : 96 // rough INR rates
+  const total = qty * pricePerLitre
 
-  /* helpers -------------------------------------------------------------- */
-  const goNext = () => setStep((s) => Math.min(3, s + 1))
-  const goBack = () => setStep((s) => Math.max(1, s - 1))
-  const placeOrder = () => {
-    // TODO: replace with real API call
-    const orderId = `FF${Date.now()}`
-    navigate(`/tracking/${orderId}`)
+  function next() {
+    if (step < 3) setStep(step + 1)
+  }
+  function prev() {
+    if (step > 1) setStep(step - 1)
+  }
+  function placeOrder() {
+    // in real life, call API → create order → get ID
+    const fakeOrderId = Math.floor(Math.random() * 10_000)
+      .toString()
+      .padStart(4, "0")
+    navigate(`/tracking/${fakeOrderId}`)
   }
 
-  /* --------------------------------------------------------------------- */
   return (
-    <main className="order-page">
-      <h1 className="order-title">Place Fuel Order</h1>
+    <div className="order-page">
+      <h1>Place a Fuel Order</h1>
 
-      {/* progress bar */}
-      <ol className="order-steps">
-        {["Fuel", "Location", "Payment"].map((label, i) => {
-          const n = i + 1
-          const cls = step === n ? "active" : step > n ? "done" : ""
-          return (
-            <li key={label} className={cls}>
-              {label}
-            </li>
-          )
-        })}
-      </ol>
-
-      {/* STEP 1 ----------------------------------------------------------- */}
-      {step === 1 && (
-        <section>
-          <h2>Select fuel type & quantity</h2>
-
-          {/* fuel cards */}
-          <div className="fuel-grid">
-            {FUEL_TYPES.map((f) => (
-              <button
-                key={f.id}
-                className={`fuel-card ${fuelId === f.id ? "selected" : ""}`}
-                onClick={() => setFuelId(f.id)}
-              >
-                <strong>{f.name}</strong>
-                <span className="price">₹{f.price.toFixed(1)} / L</span>
-              </button>
-            ))}
+      {/* Step indicators */}
+      <div className="steps">
+        {[1, 2, 3].map((s) => (
+          <div key={s} className={`step ${step === s ? "active" : step > s ? "done" : ""}`}>
+            {s}
           </div>
+        ))}
+      </div>
 
-          {/* quantity */}
-          <label className="qty-label">
-            Litres:
+      {/* Step content */}
+      {step === 1 && (
+        <section className="card">
+          <h2>Select Fuel Type</h2>
+          <label>
             <input
-              type="number"
-              min={1}
-              max={200}
-              value={litres}
-              onChange={(e) => setLitres(Math.max(1, Math.min(200, Number(e.target.value))))}
+              type="radio"
+              name="fuel"
+              value="Petrol"
+              checked={fuelType === "Petrol"}
+              onChange={() => setFuelType("Petrol")}
+            />
+            Petrol (₹96 / L)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="fuel"
+              value="Diesel"
+              checked={fuelType === "Diesel"}
+              onChange={() => setFuelType("Diesel")}
+            />
+            Diesel (₹88 / L)
+          </label>
+          <div className="actions">
+            <button onClick={next}>Next</button>
+          </div>
+        </section>
+      )}
+
+      {step === 2 && (
+        <section className="card">
+          <h2>Quantity &amp; Delivery Address</h2>
+          <label>
+            Quantity (litres)
+            <input type="number" min="1" step="1" value={qty} onChange={(e) => setQty(Number(e.target.value))} />
+          </label>
+          <label>
+            Address
+            <textarea
+              rows="3"
+              placeholder="Street, City, Pincode"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
             />
           </label>
-
-          {/* nav */}
-          <div className="nav">
-            <button className="btn primary" disabled={!fuelId} onClick={goNext}>
-              Continue
+          <div className="actions">
+            <button onClick={prev}>Back</button>
+            <button onClick={next} disabled={!address}>
+              Next
             </button>
           </div>
         </section>
       )}
 
-      {/* STEP 2 ----------------------------------------------------------- */}
-      {step === 2 && (
-        <section>
-          <h2>Delivery location</h2>
-
-          <textarea
-            className="address-box"
-            rows={3}
-            placeholder="Full address with landmark"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-
-          <div className="nav">
-            <button className="btn" onClick={goBack}>
-              Back
-            </button>
-            <button className="btn primary" disabled={!address.trim()} onClick={goNext}>
-              Continue
-            </button>
-          </div>
-        </section>
-      )}
-
-      {/* STEP 3 ----------------------------------------------------------- */}
       {step === 3 && (
-        <section>
-          <h2>Review & pay</h2>
-
-          <ul className="summary">
+        <section className="card">
+          <h2>Review &amp; Pay</h2>
+          <ul className="review">
             <li>
-              {litres} L of {selectedFuel?.name}
-              <span>₹{fuelCost.toFixed(0)}</span>
+              <strong>Fuel:</strong> {fuelType}
             </li>
             <li>
-              Delivery Fee <span>₹{deliveryFee}</span>
+              <strong>Quantity:</strong> {qty} L
             </li>
-            <li className="total">
-              Total <span>₹{total.toFixed(0)}</span>
+            <li>
+              <strong>Address:</strong> {address}
+            </li>
+            <li>
+              <strong>Total:</strong> ₹{total.toLocaleString()}
             </li>
           </ul>
-
-          <button className="btn primary big" disabled={!selectedFuel || !address.trim()} onClick={placeOrder}>
-            Pay & Place Order
-          </button>
-
-          <div className="nav">
-            <button className="btn" onClick={goBack}>
-              Back
+          <div className="actions">
+            <button onClick={prev}>Back</button>
+            <button className="primary" onClick={placeOrder}>
+              Pay &amp; Place Order
             </button>
           </div>
         </section>
       )}
-    </main>
+    </div>
   )
 }

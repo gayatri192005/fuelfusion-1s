@@ -1,0 +1,101 @@
+/* ----------  Layout ---------- */
+.tracking-page {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: system-ui, sans-serif;
+  color: #063e2e;
+}
+/* ----------  Header ---------- */
+.tracking-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+.back {
+  color: #046c4e;
+  font-weight: 600;
+  text-decoration: none;
+}
+.title {
+  flex: 1;
+  font-size: 1.35rem;
+  margin: 0;
+}
+.status {
+  background: #04bf7b;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+.status.delivered {
+  background: #5c6b72;
+}
+/* ----------  Map Placeholder ---------- */
+.map-box {
+  position: relative;
+  height: 190px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ccf1e0, #dff7ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.pulse-marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #04bf7b;
+  animation: pulse 1.6s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+.map-text {
+  position: absolute;
+  text-align: center;
+  font-weight: 600;
+  color: #046c4e;
+}
+/* ----------  Progress List ---------- */
+.progress .step {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.bullet {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #4b5563;
+}
+.step.done .bullet {
+  background: #04bf7b;
+  color: #fff;
+}
+.details h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem;
+}
+.details p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #4b5563;
+}
