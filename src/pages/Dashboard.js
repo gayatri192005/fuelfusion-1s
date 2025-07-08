@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
-import "./../styles/Dashboard.css"
+import "../styles/Dashboard.css"
 
 export default function Dashboard() {
-  const [name] = useState("John")
+  const [name] = React.useState("John")
 
   return (
     <main className="dashboard">
@@ -50,6 +50,11 @@ export default function Dashboard() {
             <span className="pending">En Route</span>
           </li>
         </ul>
+      </section>
+
+      <section className="dashboard__placeholder">
+        <h1>Dashboard</h1>
+        <p>This is a simple placeholder. Connect your real analytics later.</p>
       </section>
     </main>
   )

@@ -1,8 +1,8 @@
 /* ----------  Layout ---------- */
 .tracking-page {
-  max-width: 720px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  max-width: 640px;
+  margin: auto;
+  padding: 2rem;
   font-family: system-ui, sans-serif;
   color: #063e2e;
 }
@@ -27,23 +27,46 @@
 .status {
   background: #04bf7b;
   color: #fff;
-  padding: 0.25rem 0.75rem;
+  padding: 0;
+  list-style: none;
   border-radius: 999px;
   font-size: 0.85rem;
 }
 .status.delivered {
   background: #5c6b72;
 }
-/* ----------  Map Placeholder ---------- */
-.map-box {
+.status li {
   position: relative;
-  height: 190px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #ccf1e0, #dff7ff);
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.status li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #ccc;
+}
+.status li.done::before {
+  background: #04bf7b;
+}
+.status li.current::before {
+  background: #ffc107;
+}
+/* ----------  Map Placeholder ---------- */
+.map-placeholder {
+  position: relative;
+  height: 240px;
+  background: #e5f5f2;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  color: #00916e;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 .pulse-marker {
   width: 20px;

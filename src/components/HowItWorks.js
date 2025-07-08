@@ -1,23 +1,15 @@
-import "./../styles/HowItWorks.css"
+import "../styles/HowItWorks.css"
 
 export default function HowItWorks() {
-  const steps = [
-    { num: 1, title: "Place an Order", desc: "Tell us the fuel type and quantity." },
-    { num: 2, title: "We Dispatch", desc: "Nearest fuel-truck heads your way." },
-    { num: 3, title: "Refuel & Relax", desc: "Pay securely and you’re good to go!" },
-  ]
-
+  const steps = ["Place Order", "We Dispatch", "We Refuel", "You Drive"]
   return (
-    <section id="how" className="how">
-      <h2 className="how__title">How It Works</h2>
-      <ol className="how__list">
-        {steps.map((s) => (
-          <li key={s.num}>
-            <span className="step-num">{s.num}</span>
-            <div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-            </div>
+    <section className="how-it-works">
+      <h2>How It Works</h2>
+      <ol>
+        {steps.map((s, i) => (
+          <li key={s}>
+            <span>{i + 1}</span>
+            {s}
           </li>
         ))}
       </ol>

@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "react-scripts build",
+    "build": "next build",
     "dev": "next dev",
-    "eject": "react-scripts eject",
     "lint": "next lint",
-    "start": "react-scripts start",
-    "test": "react-scripts test"
+    "start": "next start"
   },
   "browserslist": {
     "production": [
@@ -79,7 +77,6 @@
     "react-hook-form": "^7.54.1",
     "react-resizable-panels": "^2.1.7",
     "react-router-dom": "latest",
-    "react-scripts": "5.0.1",
     "recharts": "2.15.0",
     "socket.io": "latest",
     "socket.io-client": "^4.6.0",

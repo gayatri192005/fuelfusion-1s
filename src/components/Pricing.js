@@ -21,8 +21,12 @@ export default function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="pricing">
-      <h2 className="pricing__title">Simple, Transparent Pricing</h2>
+    <section className="pricing">
+      <h2>Simple Pricing</h2>
+      <div className="card">
+        <p className="rate">₹105 / litre</p>
+        <p className="small">+ ₹99 convenience fee per visit</p>
+      </div>
       <div className="pricing__grid">
         {plans.map((p) => (
           <div key={p.name} className={`plan${p.highlight ? " plan--highlight" : ""}`}>

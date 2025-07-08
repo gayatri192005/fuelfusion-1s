@@ -4,38 +4,37 @@ import { useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
 import "../styles/AuthModal.css"
 
-export default function AuthModal() {
+export default function AuthModal({ onClose = () => {} }) {
   const { showAuthModal, closeAuthModal, login, register } = useAuth()
 
   const [isLogin, setIsLogin] = useState(true)
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    password: "",
-  })
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
   if (!showAuthModal) return null
 
-  const handleChange = (e) => setFormState({ ...formState, [e.target.name]: e.target.value })
+  const handleChange = (e) => {
+    if (e.target.name === "email") setEmail(e.target.value)
+    else if (e.target.name === "password") setPassword(e.target.value)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
     setError("")
 
-    const { name, email, password } = formState
-    const creds = { name, email, password }
+    const creds = { email, password }
 
-    const result = isLogin ? await login({ email, password }) : await register(creds)
+    const result = isLogin ? await login(creds) : await register(creds)
 
     if (!result.success) setError(result.message || "Something went wrong")
     setLoading(false)
   }
 
   return (
-    <div className="auth-backdrop" onClick={closeAuthModal}>
+    <div className="auth-backdrop" onClick={onClose}>
       <div
         className="auth-modal"
         onClick={(e) => {
@@ -57,24 +56,15 @@ export default function AuthModal() {
         </div>
 
         <form onSubmit={handleSubmit}>
-          {!isLogin && (
-            <input type="text" name="name" placeholder="Name" value={formState.name} onChange={handleChange} required />
-          )}
+          {!isLogin && <input type="text" name="name" placeholder="Name" value="" onChange={handleChange} required />}
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formState.email}
-            onChange={handleChange}
-            required
-          />
+          <input type="email" name="email" placeholder="Email" value={email} onChange={handleChange} required />
 
           <input
             type="password"
             name="password"
             placeholder="Password"
-            value={formState.password}
+            value={password}
             onChange={handleChange}
             minLength={6}
             required
@@ -85,6 +75,7 @@ export default function AuthModal() {
           <button type="submit" disabled={loading}>
             {loading ? "Please wait…" : isLogin ? "Login" : "Create Account"}
           </button>
+          {!isLogin && <button onClick={() => alert(`Magic link sent to ${email}`)}>Send Magic Link</button>}
         </form>
       </div>
     </div>

@@ -11,3 +11,24 @@
   z-index: 1001;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.alert.info {
+  background: #e7f9f5;
+  color: #00916e;
+}
+
+.alert.error {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.alert.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}

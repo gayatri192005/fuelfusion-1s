@@ -1,8 +1,10 @@
 .site-footer {
-  background: #0f172a;
-  color: #cbd5e1;
-  padding: 2rem 1rem;
+  background: #022b3a; /* Updated background color */
+  color: #fff; /* Updated text color */
+  padding: 1rem; /* Updated padding */
   margin-top: 4rem;
+  text-align: center; /* Added text alignment */
+  font-size: 0.875rem; /* Added font size */
 }
 
 .site-footer__inner {
@@ -16,7 +18,7 @@
 }
 
 .site-footer nav a {
-  color: #cbd5e1;
+  color: #fff; /* Updated text color */
   margin-left: 1rem;
   text-decoration: none;
   font-size: 0.9rem;

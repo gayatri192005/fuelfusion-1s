@@ -1,7 +1,6 @@
 "use client"
-
 import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import "../styles/TrackingPage.css"
 
 /**
@@ -14,8 +13,8 @@ import "../styles/TrackingPage.css"
 
 const EMPTY_STEPS = [
   { id: 1, title: "Order Confirmed", note: "We received your order", done: true },
-  { id: 2, title: "Driver Assigned", note: "Driver is on the way", done: false },
-  { id: 3, title: "En Route", note: "Heading to your location", done: false },
+  { id: 2, title: "Driver Assigned", note: "Driver is on the way", done: true },
+  { id: 3, title: "En Route", note: "Heading to your location", done: true },
   { id: 4, title: "Arrived", note: "Truck has arrived", done: false },
   { id: 5, title: "Fuel Delivered", note: "Enjoy your drive!", done: false },
 ]
@@ -43,37 +42,18 @@ export default function TrackingPage() {
   }, [])
 
   return (
-    <main className="tracking-page">
-      <header className="tracking-header">
-        <Link to="/dashboard" className="back">
-          ← Dashboard
-        </Link>
-        <h1 className="title">Tracking – Order #{orderId}</h1>
-        <span className={`status ${eta === 0 ? "delivered" : ""}`}>{eta === 0 ? "Delivered" : `≈ ${eta} min`}</span>
-      </header>
-
-      {/* Placeholder map */}
-      <section className="map-box">
-        <div className="pulse-marker" />
-        <p className="map-text">
-          Live GPS Tracker
-          <br />
-          Driver&nbsp;{eta === 0 ? "arrived" : `≈ ${eta} min`}
-        </p>
-      </section>
-
-      {/* Progress list */}
-      <section className="progress">
+    <section className="tracking-page">
+      <h1>Order Tracking</h1>
+      <div className="map-placeholder">
+        <p>Map will appear here.</p>
+      </div>
+      <ul className="status">
         {steps.map((s) => (
-          <div key={s.id} className={`step ${s.done ? "done" : ""}`}>
-            <div className="bullet">{s.done ? "✔︎" : s.id}</div>
-            <div className="details">
-              <h3>{s.title}</h3>
-              <p>{s.note}</p>
-            </div>
-          </div>
+          <li key={s.id} className={s.done ? "done" : s.id === 4 ? "current" : ""}>
+            {s.title}
+          </li>
         ))}
-      </section>
-    </main>
+      </ul>
+    </section>
   )
 }
