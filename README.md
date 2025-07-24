@@ -1,30 +1,148 @@
-# Fuel Fusion project
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+<div align="center">
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/gayatri-gs-projects/v0-fuel-fusion-project)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/2T8r0jNDaAJ)
+![Next.js](https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![PNPM](https://img.shields.io/badge/PNPM-F69220?style=for-the-badge&logo=pnpm&logoColor=white)
+![Open Source](https://img.shields.io/badge/Open--Source-✅-brightgreen?style=for-the-badge)
+  
+</div>
 
-## Overview
+---
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## ⚡ Fuel Fusion - 1s
 
-## Deployment
+> **"Unifying energy intelligence with modern UI power."**  
+> A scalable and responsive Next.js web application to explore, manage, and visualize energy data efficiently — built with performance, clarity, and accessibility in mind.
 
-Your project is live at:
+---
+<img width="1885" height="776" alt="image" src="https://github.com/user-attachments/assets/0f098dce-b174-42df-8293-01ff38508c1b" />
+ 
 
-**[https://vercel.com/gayatri-gs-projects/v0-fuel-fusion-project](https://vercel.com/gayatri-gs-projects/v0-fuel-fusion-project)**
+---
 
-## Build your app
+## 🚀 Live Preview
 
-Continue building your app on:
+🔗 [FuelFusion.vercel.app](https://v0-fuel-fusion-project.vercel.app)
 
-**[https://v0.dev/chat/projects/2T8r0jNDaAJ](https://v0.dev/chat/projects/2T8r0jNDaAJ)**
+---
 
-## How It Works
+## 📁 Project Structure
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+```bash
+├── app/                # App routing (Next.js appDir)
+├── components/         # Reusable UI components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── public/             # Static files (images, icons, etc.)
+├── src/                # Additional source pages/modules
+├── styles/             # Tailwind/global styling
+├── .gitignore
+├── README.md
+├── package.json
+├── pnpm-lock.yaml
+├── next.config.mjs
+├── postcss.config.mjs
+├── tailwind.config.ts
+├── tsconfig.json
+└── server.js
+````
+
+---
+
+## 🛠️ Tech Stack
+
+* ⚡ **Next.js** – App directory structure
+* 🎨 **Tailwind CSS** – Styling framework
+* 🧠 **TypeScript** – Type safety & structure
+* 🚀 **Vercel** – Lightning-fast deployment
+* 📦 **PNPM** – Fast and efficient package manager
+
+---
+
+## ✨ Features
+
+- 🔹 **Modular Component Architecture** – All UI and logic is split into clean, reusable, and scalable components.
+- 🔹 **Responsive Design** – Optimized for all devices, from widescreens to mobile-first users.
+- 🔹 **Next.js App Directory Support** – Leveraging new `app/` directory structure for modern routing & layouts.
+- 🔹 **TypeScript Integration** – Ensuring strong type safety and developer productivity.
+- 🔹 **Tailwind CSS Styling** – Utility-first CSS framework for fast and efficient styling.
+- 🔹 **Custom Hooks & Utilities** – For smart state and side-effect handling.
+- 🔹 **Server-ready** – Includes `server.js` for deployment flexibility.
+- 🔹 **Vercel Deployment Enabled** – Easily deployed with one-click using Vercel's cloud platform.
+- 🔹 **Fast Builds with PNPM** – Uses `pnpm` for faster dependency installation and better monorepo support.
+- 🔹 **Future Ready** – Structured for easy feature expansion (API routes, backend logic, and PWA integration).
+
+---
+
+## 📸 UI Snapshot
+
+<div align="center">
+  
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/7663876c-770a-4f0a-b680-7dd7689a3f7b" width="100%"/></td>
+    <td><img src="https://github.com/user-attachments/assets/40232df9-02d2-4992-88de-bc77de4ffc44" width="100%"/></td>
+    <td><img src="https://github.com/user-attachments/assets/ea3a5a3b-b87a-4224-b190-a1a0cc4b78b5" width="100%"/></td>
+  </tr>
+  <tr align="center">
+    <td><b>Desktop View</b></td>
+    <td><b>Working Design Design</b></td>
+    <td><b>Footer Section</b></td>
+  </tr>
+</table>
+
+</div>
+
+
+---
+
+## 🧑‍💻 How to Run Locally
+
+```bash
+# Clone the repo
+git clone https://github.com/gayatri192005/fuel-fusion.git
+
+# Navigate into the project folder
+cd fuel-fusion
+
+# Install dependencies
+pnpm install
+
+# Run development server
+pnpm dev
+```
+
+---
+
+## 🤝 Credits
+
+Made with 💙 by **Gayatri G**
+🚀 Special thanks to contributors and early testers!
+
+---
+
+## 🧭 Future Scope
+
+* 🔍 Fuel station smart analytics
+* 📊 Energy usage prediction via ML
+* 🧭 Real-time EV station integration (like FuelFusion-Plus)
+* 📱 Launching mobile-friendly PWA version soon!
+
+---
+
+## 📬 Contributing
+
+We welcome all contributions!
+Please create an issue first to discuss what you’d like to change.
+
+> `Fork` | `Clone` | `Build something awesome!`
+
+---
+
+## 📄 License
+
+Licensed under the **MIT License** – feel free to use with attribution.
+
+---
