@@ -139,6 +139,8 @@ Please create an issue first to discuss what you’d like to change.
 
 > `Fork` | `Clone` | `Build something awesome!`
 
+<p align="left"> <a href="https://www.linkedin.com/in/gayatri192005" target="_blank"> <img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-gayatri192005-blue?style=for-the-badge&logo=linkedin&logoColor=white" /> </a> <a href="mailto:gayatri192005@gmail.com" target="_blank"> <img alt="Email" src="https://img.shields.io/badge/Gmail-gayatri192005@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" /> </a> <a href="https://www.instagram.com/gayatri192005" target="_blank"> <img alt="Instagram" src="https://img.shields.io/badge/Instagram-@gayatri192005-E4405F?style=for-the-badge&logo=instagram&logoColor=white" /> </a> <a href="https://www.snapchat.com/add/gayatri192005" target="_blank"> <img alt="Snapchat" src="https://img.shields.io/badge/Snapchat-gayatri192005-FFFC00?style=for-the-badge&logo=snapchat&logoColor=black" /> </a> <a href="https://twitter.com/gayatri192005" target="_blank"> <img alt="Twitter" src="https://img.shields.io/badge/Twitter-@gayatri192005-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /> </a> <a href="https://github.com/InfoverseXG" target="_blank"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-InfoverseXG-181717?style=for-the-badge&logo=github&logoColor=white" /> </a> </p>
+
 ---
 
 ## 📄 License
